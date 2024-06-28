@@ -1,4 +1,5 @@
 *.fq.gz
 *.fa.gz
 *.bam
+*.bai
 *.bt2
