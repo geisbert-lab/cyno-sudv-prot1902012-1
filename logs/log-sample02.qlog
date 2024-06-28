@@ -1,0 +1,87 @@
+==========================================================
+Start date: Wed Jun 26 14:34:49 EDT 2024
+Running on node: scc-gn4
+Current directory: /restricted/projectnb/lasvchal/archive/Jacquelyn/cyno-sudv-prot1902012-1
+Job name: sample02
+Job ID: 8317084
+==========================================================
+
+[MSG] STEP 0: CHECKING INPUTS
+[MSG] Loading bowtie2 succeeded
+[MSG] Loading samtools succeeded
+[MSG] Loading R succeeded
+[MSG] Host index: pipeline/indices/mfascicularis-v6.0
+[MSG] Host index: pipeline/indices/sudv-gulu-NC006432.1
+[MSG] Reference FASTA: pipeline/genomes/sudv-gulu-NC006432.1.fa
+[MSG] First FASTQ file: data/sample02/raw-r1.fq.gz
+[MSG] Second FASTQ file: data/sample02/raw-r2.fq.gz
+[MSG] Valid output directory: data
+[MSG] Working with sample: sample02
+[MSG] Done checking inputs!
+
+[MSG] STEP 1: DISCARD HOST READS
+[MSG] CMD: bowtie2 --threads 8 --quiet -x 'pipeline/indices/mfascicularis-v6.0' --very-sensitive --un-conc-gz 'data/sample02/filtered-r%.fq.gz' -1 'data/sample02/raw-r1.fq.gz' -2 'data/sample02/raw-r2.fq.gz' > /dev/null
+[MSG] Host alignment succeeded
+[MSG] STEP 2: ALIGN TO VIRUS
+[MSG] CMD: bowtie2 --threads 8 -x 'pipeline/indices/sudv-gulu-NC006432.1' -1 'data/sample02/filtered-r1.fq.gz' -2 'data/sample02/filtered-r2.fq.gz' > 'data/sample02/alignment.sam'
+10621086 reads; of these:
+  10621086 (100.00%) were paired; of these:
+    9789804 (92.17%) aligned concordantly 0 times
+    831282 (7.83%) aligned concordantly exactly 1 time
+    0 (0.00%) aligned concordantly >1 times
+    ----
+    9789804 pairs aligned concordantly 0 times; of these:
+      30779 (0.31%) aligned discordantly 1 time
+    ----
+    9759025 pairs aligned 0 times concordantly or discordantly; of these:
+      19518050 mates make up the pairs; of these:
+        19469889 (99.75%) aligned 0 times
+        48161 (0.25%) aligned exactly 1 time
+        0 (0.00%) aligned >1 times
+8.34% overall alignment rate
+[MSG] Viral alignment succeeded
+[MSG] CMD: samtools view --threads 8 -b -h 'data/sample02/alignment.sam' > 'data/sample02/alignment-raw.bam'
+[MSG] Compression succeeded
+
+[MSG] STEP 3: PROCESS ALIGNMENT
+[MSG] CMD: samtools sort --threads 8 'data/sample02/alignment-raw.bam' > 'data/sample02/alignment-sorted.bam'
+[bam_sort_core] merging from 0 files and 8 in-memory blocks...
+[MSG] Sorting succeeded
+[MSG] CMD: pipeline/lofreq/lofreq indelqual --dindel --ref 'pipeline/genomes/sudv-gulu-NC006432.1.fa' 'data/sample02/alignment-sorted.bam' > 'data/sample02/alignment.bam'
+[MSG] Indelqual succeeded
+[MSG] CMD: samtools index 'data/sample02/alignment.bam'
+[MSG] Indexing succeeded
+
+[MSG] STEP 4: CALCULATE COVERAGE
+[MSG] CMD: samtools depth --threads 8 -a -H 'data/sample02/alignment.bam' > 'data/sample02/coverage.tsv'
+[MSG] Coverage succeeded
+
+[MSG] STEP 5: ASSEMBLE CONSENSUS
+[MSG] CMD: samtools consensus --threads 8 -a --use-qual --min-depth 100 --call-fract 0.5 --output 'data/sample02/consensus-tmp.fa' 'data/sample02/alignment.bam'
+[MSG] Consensus succeeded
+[MSG] Updating consensus header
+
+[MSG] STEP 6: QUANTIFY SNVs
+[MSG] CMD: pipeline/lofreq/lofreq call-parallel --pp-threads 8 --call-indels --min-cov 100 --ref 'pipeline/genomes/sudv-gulu-NC006432.1.fa' 'data/sample02/alignment.bam' > 'data/sample02/snvs.vcf'
+INFO [2024-06-26 15:36:26,479]: Using 8 threads with following basic args: lofreq call --call-indels --min-cov 100 --ref pipeline/genomes/sudv-gulu-NC006432.1.fa data/sample02/alignment.bam
+
+INFO [2024-06-26 15:36:26,487]: Adding 27 commands to mp-pool
+Number of substitution tests performed: 50016
+Number of indel tests performed: 5436
+INFO [2024-06-26 15:42:08,932]: Executing lofreq filter -i /scratch/8317084.1.linga/lofreq2_call_parallelap7r_xox/concat.vcf.gz -o - --snvqual-thresh 67 --indelqual-thresh 57
+
+[MSG] LoFreq succeeded
+
+[MSG] Pipeline complete! Printing package versions...
+
+Currently Loaded Modules:
+  1) gcc/12.2.0   3) bowtie2/2.4.2   5) samtools/1.18
+  2) git/2.18.0   4) htslib/1.18     6) R/4.0.2
+
+ 
+
+LoFreq
+version: 2.1.3.1
+commit: v2.1.3-4-gb3944d4-dirty
+build-date: Jun 21 2017
+

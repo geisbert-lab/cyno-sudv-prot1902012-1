@@ -1,0 +1,21 @@
+﻿ID,Condition,NHP,Tissue,RNA ng/µL,RNA 260/280
+sample01,Control,131338,AxLN,6.1,2.44
+sample02,Control,131338,Liver,1402.1,2.05
+sample03,Control,131338,Plasma,5.7,1.97
+sample04,Control,131338,Spleen,245.4,2.03
+sample05,Treated,1210733,AxLN,12.1,1.94
+sample06,Treated,1210733,Liver,770.9,1.22
+sample07,Treated,1210733,Plasma,25.0,1.82
+sample08,Treated,1210733,Spleen,198.4,2.05
+sample09,Treated,1210855,AxLN,36.2,1.93
+sample10,Treated,1210855,Liver,71.4,2.05
+sample11,Treated,1210855,Plasma,5.9,1.99
+sample12,Treated,1210855,Spleen,195.0,2.03
+sample13,Treated,1306692,AxLN,6.4,2.12
+sample14,Treated,1306692,Liver,73.1,1.97
+sample15,Treated,1306692,Plasma,41.6,2.00
+sample16,Treated,1306692,Spleen,64.5,2.12
+sample17,Control,1401953,AxLN,8.4,2.07
+sample18,Control,1401953,Liver,276.9,2.07
+sample19,Control,1401953,Plasma,7.5,1.74
+sample20,Control,1401953,Spleen,185.0,2.02
