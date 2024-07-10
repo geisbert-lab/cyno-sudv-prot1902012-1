@@ -1,0 +1,21 @@
+"ID","NHP","Tissue","Condition","Frequency","Depth"
+"sample01","NHP 131338","AxLN","Control",0.023669,646
+"sample02","NHP 131338","Liver","Control",0,1810
+"sample03","NHP 131338","Plasma","Control",0,252055
+"sample04","NHP 131338","Spleen","Control",0,5326
+"sample05","NHP 1210733","AxLN","Treated",0.402189,13037
+"sample06","NHP 1210733","Liver","Treated",0.224194,4711
+"sample07","NHP 1210733","Plasma","Treated",0.378639,158215
+"sample08","NHP 1210733","Spleen","Treated",0.233894,49800
+"sample09","NHP 1210855","AxLN","Treated",0.37931,8481
+"sample10","NHP 1210855","Liver","Treated",0.284836,3981
+"sample11","NHP 1210855","Plasma","Treated",0.357343,147176
+"sample12","NHP 1210855","Spleen","Treated",0.36113,11700
+"sample13","NHP 1306692","AxLN","Treated",0.125107,8299
+"sample14","NHP 1306692","Liver","Treated",0.053532,11974
+"sample15","NHP 1306692","Plasma","Treated",0.118666,162236
+"sample16","NHP 1306692","Spleen","Treated",0.084323,6083
+"sample17","NHP 1401953","AxLN","Control",0.036812,2558
+"sample18","NHP 1401953","Liver","Control",0.016272,703
+"sample19","NHP 1401953","Plasma","Control",0,173998
+"sample20","NHP 1401953","Spleen","Control",0.01232,519

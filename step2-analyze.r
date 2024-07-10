@@ -300,7 +300,7 @@ snvs %>%
   scale_fill_manual(values=cols.cond) +
   ylim(0, 1) +
   ggpubr::stat_compare_means(comparisons=list(c("Control", "Treated")), 
-                             label.y=0.6, label="p.format") +
+                             label.y=0.6) +
   labs(x=element_blank(),
        y="GP P124L frequency") +
   theme(legend.position="none")
@@ -322,12 +322,17 @@ ggsave("analysis/coverage-gpp124L.png",
        units="cm", width=15, height=10)
 
 # write CSV with coverage
-adaptive %>%
+snvs %>%
   filter(AA.ID=="GP P124L") %>%
-  mutate(NHP=str_remove(NHP, "^NHP")) %>%
-  select(ID, NHP, Tissue, Frequency, NT.position) %>%
+  select(ID, Frequency) %>%
+  right_join(meta, by="ID") %>%
+  # fill in missing zeros
+  replace_na(list(Frequency=0)) %>%
+  mutate(NT.position=6368) %>%
+  select(ID, NHP, Tissue, Condition, Frequency, NT.position) %>%
   left_join(select(prof, ID, NT.position, Depth),
             by=c("ID", "NT.position")) %>%
   select(-NT.position) %>%
+  dplyr::arrange(ID) %>%
   write.csv("analysis/snvs-gpp124L.csv",
           row.names=FALSE)
