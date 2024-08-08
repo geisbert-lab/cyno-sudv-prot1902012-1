@@ -1,5 +1,5 @@
 
-# Identifying potential resistance mutants in SUDV-challenged cynomolgus macaques treated with 1C3
+# Failure to rescue orthoebolavirus-exposed macaques with antibody 1C3 coincides with rapid emergence of resistance mutations
 
 > In brief, five macaques were challenged with SUDV Gulu ([P2 from clinical isolate](https://doi.org/10.1172/jci.insight.159090)). Three macaques were treated with antibody 1C3, which [targets the "chalice" of the EBOV glycoprotein](https://doi.org/10.1016/j.cell.2022.02.023); the two remaining macaques were untreated controls. We sequenced rRNA-depleted RNA from four tissues from all five macaques: axillary lymph node (AxLN), liver, plasma, and spleen. The resulting sequences were examined for potential resistance mutations to 1C3 treatment.
 
@@ -42,7 +42,7 @@ SNV analyses were performed in R as outlined below. For full code and details, p
 	- In GP
 	- Found at >0.1 frequency in at least two treated NHPs
 	- *Not* found at >0.1 frequency in any control sample
-5. One SNV, [GP P124L](https://github.com/geisbert-lab/cyno-sudv-prot1902012-1/blob/9c219e9fb1589dbfe591ad3cc22216fc7df69421/analysis/snvs-gpp124L-column.png), met these criteria. The difference in GP P124L frequences between control and treated animal tissues was statistically significant ([Wilcoxon nonparamtreci test p<0.001](https://github.com/geisbert-lab/cyno-sudv-prot1902012-1/blob/9c219e9fb1589dbfe591ad3cc22216fc7df69421/analysis/snvs-gpp124L-violin.png)).
+5. One SNV, [GP P124L](https://github.com/geisbert-lab/cyno-sudv-prot1902012-1/blob/9c219e9fb1589dbfe591ad3cc22216fc7df69421/analysis/snvs-gpp124L-column.png), met these criteria. The difference in GP P124L frequences between control and treated animal tissues was statistically significant ([Wilcoxon nonparamtreic test p<0.001](https://github.com/geisbert-lab/cyno-sudv-prot1902012-1/blob/9c219e9fb1589dbfe591ad3cc22216fc7df69421/analysis/snvs-gpp124L-violin.png)).
 
 ### Software used
 
