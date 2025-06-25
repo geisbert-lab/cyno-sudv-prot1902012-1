@@ -1,7 +1,9 @@
 
-# Failure to rescue orthoebolavirus-exposed macaques with antibody 1C3 coincides with rapid emergence of resistance mutations
+# Monotherapy with antibody 1C3 partially protects Ebola virus-exposed macaques
 
-> In brief, five macaques were challenged with SUDV Gulu ([P2 from clinical isolate](https://doi.org/10.1172/jci.insight.159090)). Three macaques were treated with antibody 1C3, which [targets the "chalice" of the EBOV glycoprotein](https://doi.org/10.1016/j.cell.2022.02.023); the two remaining macaques were untreated controls. We sequenced rRNA-depleted RNA from four tissues from all five macaques: axillary lymph node (AxLN), liver, plasma, and spleen. The resulting sequences were examined for potential resistance mutations to 1C3 treatment.
+> Published in the Journal of Virology ([10.1128/jvi.00296-25](https://doi.org/10.1128/jvi.00296-25). PMID [40492736](https://pubmed.ncbi.nlm.nih.gov/40492736/). 
+
+In brief, five macaques were challenged with SUDV Gulu ([P2 from clinical isolate](https://doi.org/10.1172/jci.insight.159090)). Three macaques were treated with antibody 1C3, which [targets the "chalice" of the EBOV glycoprotein](https://doi.org/10.1016/j.cell.2022.02.023); the two remaining macaques were untreated controls. We sequenced rRNA-depleted RNA from four tissues from all five macaques: axillary lymph node (AxLN), liver, plasma, and spleen. The resulting sequences were examined for potential resistance mutations to 1C3 treatment.
 
 ## RNA and sequencing library prep
 
